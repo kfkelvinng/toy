@@ -1,0 +1,15 @@
+Today, I am wondering whether I could implement the DateFormat in a way which format date into 01-JAN, 02-FEB, 03-MAR in upper. Here is the solution:
+
+[sourcecode language="Java"]
+DateFormat df = new DateFormat() {
+    private static final long serialVersionUID = 1L;
+    DateFormat delegate = new SimpleDateFormat("MM-MMM");
+    public StringBuffer format(Date date, StringBuffer toAppendTo, java.text.FieldPosition fieldPosition) {
+        return new StringBuffer(delegate.format(date, toAppendTo, fieldPosition).toString().toUpperCase());
+    };
+    @Override
+    public Date parse(String source, ParsePosition pos) {
+        return delegate.parse(source, pos);
+    }
+};
+[/sourcecode]
