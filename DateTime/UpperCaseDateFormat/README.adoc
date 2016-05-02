@@ -1,6 +1,13 @@
-= Uppercase DateFormat
+= Upper Case DateFormat
 
 Imagine I have Spring bean factory that takes DateFormat and I want the dateformat to be 01-JAN, 02-FEB, 03-MAR in uppercasein uppercase, but the ordinary SimpleDateFormat would only format it to 01-Jan, 02-Feb, 03-Mar with "MM-MMM".
 
 How could implement the DateFormat in such a way which format date into uppercase?
+
+[source]
+----
+java UpperCaseDateFormat
+05-May=>05-MAY
+Monday, 2 May 2016=>MONDAY, 2 MAY 2016
+----
 
