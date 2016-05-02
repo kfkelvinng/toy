@@ -1,0 +1,9 @@
+#read from sysin
+perl -e "s/^MyProp=/$0/" -p
+
+#read and print to sysout
+perl -e "s/^MyProp=/$0/" -p "file.dat"
+
+#read and write to the same file
+perl -e "s/^MyProp=/$0/" -pi "file.dat"
+
