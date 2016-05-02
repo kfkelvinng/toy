@@ -1,15 +1,6 @@
-Today, I am wondering whether I could implement the DateFormat in a way which format date into 01-JAN, 02-FEB, 03-MAR in upper. Here is the solution:
+= Uppercase DateFormat
 
-[sourcecode language="Java"]
-DateFormat df = new DateFormat() {
-    private static final long serialVersionUID = 1L;
-    DateFormat delegate = new SimpleDateFormat("MM-MMM");
-    public StringBuffer format(Date date, StringBuffer toAppendTo, java.text.FieldPosition fieldPosition) {
-        return new StringBuffer(delegate.format(date, toAppendTo, fieldPosition).toString().toUpperCase());
-    };
-    @Override
-    public Date parse(String source, ParsePosition pos) {
-        return delegate.parse(source, pos);
-    }
-};
-[/sourcecode]
+Imagine I have Spring bean factory that takes DateFormat and I want the dateformat to be 01-JAN, 02-FEB, 03-MAR in uppercasein uppercase, but the ordinary SimpleDateFormat would only format it to 01-Jan, 02-Feb, 03-Mar with "MM-MMM".
+
+How could implement the DateFormat in such a way which format date into uppercase?
+
