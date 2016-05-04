@@ -1,0 +1,17 @@
+= Hard Code dependency
+
+Rather than `mvn install --groupId blah --artifactId blah`, sometime we just want to simply include a dependency for maven to compile.
+
+Here is an example for htmlunit that is sitting under the project directory.
+
+[source, xml]
+----
+<dependency>
+	<groupId>org.htmlunit</groupId>
+	<artifactId>htmlunit</artifactId>
+	<version>0</version>
+	<scope>system</scope>
+	<systemPath>${project.basedir}/htmlunit-2.9/lib/htmlunit-2.9.jar</systemPath>
+</dependency>
+----
+
