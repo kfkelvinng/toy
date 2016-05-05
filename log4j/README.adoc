@@ -13,3 +13,37 @@ log4j.appender.CONSOLE.Threshold=DEBUG
 log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
 log4j.appender.CONSOLE.layout.ConversionPattern=[%d{MM-dd-yyyy HH:mm:ss}] [%p]- %t - %c - %m%n
 ----
+
+
+
+
+
+
+
+
+[source, java]
+----
+public static class CircularBreakerAppender extends AppenderSkeleton {
+
+  /** MDC Key to avoid circular behaviour (stackoverflow.com/questions/6321635/)
+   * Threads created by this thread will inherit the MDC key for multithread appender */
+  private static final String InAppendKey = CrashReportAppender.class.getName() + ".inAppend";
+
+  private static final Logger log = Logger.getLogger(CrashReportAppender.class);
+
+  @Override
+  protected void append(LoggingEvent event) {
+    // synchronized at the skeleton, need not to consider race condition CAS here.
+    if (event.getMDC(InAppendKey) != null) return;
+    MDC.put(InAppendKey, this);
+
+    try {
+      // write...
+    } finally {
+      MDC.remove(InAppendKey);
+    }
+  }
+  //...
+}
+----
+
