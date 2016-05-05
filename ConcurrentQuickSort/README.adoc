@@ -1,0 +1,5 @@
+Running on my i5-3230M laptop with jre1.7_51
+Arrays.sort:6056
+QuickSort:4538
+QuickSortParallel:2860
+
