@@ -1,0 +1,7 @@
+= Concurrent Matrix Multiplication with Tiling
+
+This implementation of matrix multiplication reduce L1 cache miss by tiling matrix to benefit from memory locality.
+
+This is an experiment to compare with an untiled C implementation compiled in LLVM.
+
+The result is the C implementation takes only nanoseconds. On the other side, the JRE7 with vectorization flags takes milliseconds.

@@ -1,10 +1,11 @@
-= Combination of arithmetic operator to form valid equation
+= The embedded JavaScript engine in Java Runtime
 
-Find out the ⊗ in the following equation:
+There is a javascript engine comes with the standard Oracle's JRE. Here is an example of calling the ScriptEngine so we could parse equation without writing logic for operator precendence for calculating "a + b * c"
 
-1 ⊗ 2 ⊗ 3 ⊗ 4 ⊗ 5 ⊗ 6 ⊗ 7 ⊗ 8 ⊗ 9 ⊗ 10 = 100
 
-where ⊗ ∈ {+, -, *, /}
+Brute force the combination of ⊗  in the following equation:
+
+1 ⊗ 2 ⊗ 3 ⊗ 4 ⊗ 5 ⊗ 6 ⊗ 7 ⊗ 8 ⊗ 9 ⊗ 10 = 100 where ⊗ ∈ {+, -, *, /}
 
 
 Result:
